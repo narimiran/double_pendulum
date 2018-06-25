@@ -213,11 +213,11 @@ def multi_animation(systems, ex, fig_size=(8, 8), hide_axes=True, filename=None)
 
 
 def __run_basic_example():
-    from simulation import *
+    import simulation
     while True:
-        rs = create_random_example()
+        rs = simulation.create_random_example()
         try:
-            r = simulate(rs, method=Euler, step_size=0.005)
+            r = simulation.simulate(rs, method=simulation.Euler, step_size=0.005)
             break
         except FloatingPointError:
             continue
@@ -226,12 +226,12 @@ def __run_basic_example():
     print(create_metadata(''))
     single_animation(r, rs)
 
-    mtd = [Euler, DOPRI5, ExplicitMidpoint]
-    mms = simulate_multiple_methods(rs, mtd, duration=20, step_size=0.01)
+    mtd = [simulation.Euler, simulation.DOPRI5, simulation.ExplicitMidpoint]
+    mms = simulation.simulate_multiple_methods(rs, mtd, duration=20, step_size=0.01)
     multi_animation(mms, rs)
 
-    exes = create_perturbations(5, rs, amount=1e-2)
-    ps = simulate_multiple_examples(exes, RK4, 30, 0.005)
+    exes = simulation.create_perturbations(5, rs, amount=1e-2)
+    ps = simulation.simulate_multiple_examples(exes, simulation.RK4, 30, 0.005)
     multi_animation(ps, rs)
 
 
