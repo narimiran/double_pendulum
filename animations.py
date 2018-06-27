@@ -128,7 +128,6 @@ def multi_animation(systems, ex, fig_size=(8, 8), hide_axes=True, filename=None)
     """Creates and saves an animation of a multiple systems.
 
     The animation is saved in `./animations` subdirectory.
-    beforehand.
     Animations are done in 50 fps.
     Bob size is proportional to bob mass.
     Trailing dots show previous pendulum positions.

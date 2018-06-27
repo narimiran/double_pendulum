@@ -6,3 +6,6 @@ __pycache__/
 *.iml
 
 animations/
+figures/
+api_key.txt
+*.ipynb
