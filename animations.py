@@ -117,7 +117,7 @@ def single_animation(system, ex, fig_size=(8, 8), hide_axes=True, filename=None)
     try:
         writer = animation.AVConvWriter(fps=50, bitrate=-1, metadata=metadata)
         anim.save('./animations/{}.mp4'.format(filename), writer=writer)
-    except FileNotFoundError:
+    except (FileNotFoundError, AttributeError):
         writer = animation.FFMpegWriter(fps=50, bitrate=-1, metadata=metadata)
         anim.save('./animations/{}.mp4'.format(filename), writer=writer)
 
@@ -204,7 +204,7 @@ def multi_animation(systems, ex, fig_size=(8, 8), hide_axes=True, filename=None)
     try:
         writer = animation.AVConvWriter(fps=50, bitrate=-1, metadata=metadata)
         anim.save('./animations/{}.mp4'.format(filename), writer=writer)
-    except FileNotFoundError:
+    except (FileNotFoundError, AttributeError):
         writer = animation.FFMpegWriter(fps=50, bitrate=-1, metadata=metadata)
         anim.save('./animations/{}.mp4'.format(filename), writer=writer)
 
